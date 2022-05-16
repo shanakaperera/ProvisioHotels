@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type='text/css'>
+	table { 
+	width: 750px; 
+	border-collapse: collapse; 
+	margin:50px auto;
+	}
+
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+	background: #eee; 
+	}
+
+th { 
+	background: #3498db; 
+	color: white; 
+	font-weight: bold; 
+	}
+
+td, th { 
+	padding: 10px; 
+	border: 1px solid #ccc; 
+	text-align: left; 
+	font-size: 18px;
+	}
+	
+	h2 {
+    background: #5B9600;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: bold;
+    height: 24px;
+    line-height: 20px;
+    margin: 12px 0 !important;
+    padding: 20px;
+    text-align: center;
+    text-shadow: 2px 2px 3px #222222;
+}
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	table { 
+	  	width: 100%; 
+	}
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		/* Label the data */
+		content: attr(data-column);
+
+		color: #000;
+		font-weight: bold;
+	}
+
+}
+</style>
+</head>
+<body>
+<h2>Contact Us Title</h2>
+<table>
+  <tbody>
+    <tr>
+      <td data-column='First Name'>Name &nbsp;&nbsp; : </td>
+      <td data-column='Last Name'>Shanaka Perera</td>
+    </tr>
+    <tr>
+      <td data-column='First Name'>Email &nbsp; &nbsp;: </td>
+      <td data-column='Last Name'>shanaka@gmail.com</td>
+    </tr>
+    <tr>
+      <td data-column='First Name'>Subject &nbsp;: </td>
+      <td data-column='Last Name'>Some Subject Here</td>
+    </tr>
+    <tr>
+      <td data-column='First Name'>Message :</td>
+      <td data-column='Last Name'>We're here for you, and always ready to talk. Please provide your contact information and Provisio Hotels will gladly reach out to you.</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
